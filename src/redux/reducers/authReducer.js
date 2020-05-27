@@ -20,6 +20,7 @@ const authReducer = (state = initialState, action) => {
     case LOAD_USER:
       return {
         ...state,
+        token: action.token,
         isAuthenticated: true,
         user: action.user,
       }
@@ -29,6 +30,7 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         ...action.token,
+        token: action.token,
         isAuthenticated: true,
         user: action.user,
       }

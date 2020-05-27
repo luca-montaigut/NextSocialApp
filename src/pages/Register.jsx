@@ -14,18 +14,6 @@ const Register = () => {
   const dispatch = useDispatch()
   const history = useHistory();
 
-  const handleNameChange = (e) => {
-    setName(e.target.value)
-  }
-
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value)
-  }
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value)
-  }
-
   const login = () => {
     const data = {
       username: name,
@@ -49,6 +37,7 @@ const Register = () => {
       .then((response) => response.json())
       .then((response) => {
         dispatch(registerSuccess(response))
+        history.push("/");
       })
       .catch((error) => {
         dispatch(registerFail())
@@ -58,9 +47,9 @@ const Register = () => {
 
   return (
     <div>
-      <input type="text" placeholder="username" value={email} onChange={handleNameChange} required />
-      <input type="text" placeholder="email" value={email} onChange={handleEmailChange} required />
-      <input type="password" placeholder="password" value={password} onChange={handlePasswordChange} required />
+      <input type="text" placeholder="username" value={name} onChange={(e) => setName(e.target.value)} required />
+      <input type="text" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+      <input type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
       <button onClick={login}>Submit</button>
     </div>
   )

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
@@ -13,13 +13,11 @@ const Login = () => {
   const dispatch = useDispatch()
   const history = useHistory();
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value)
-  }
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value)
-  }
+  useEffect(() => {
+    if (isAuthenticated) {
+      history.push("/");
+    }
+  }, [])
 
   const login = () => {
     const data = {
@@ -56,8 +54,8 @@ const Login = () => {
     <div>
       {!isAuthenticated &&
         <>
-          <input type="text" placeholder="email" value={email} onChange={handleEmailChange} required />
-          <input type="password" placeholder="password" value={password} onChange={handlePasswordChange} required />
+          <input type="text" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+          <input type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
           <button onClick={login}>Submit</button>
         </>
       }

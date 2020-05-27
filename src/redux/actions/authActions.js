@@ -1,4 +1,5 @@
 import * as actionTypes from './actionTypes';
+import Cookies from 'js-cookie'
 
 export const registerSuccess = (response) => {
     return {
@@ -18,6 +19,7 @@ export const loadUser = (response) => {
     return {
         type: actionTypes.LOAD_USER,
         user: response,
+        token: Cookies.get('token')
     }
 }
 
