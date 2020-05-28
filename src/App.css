@@ -1,0 +1,45 @@
+.logo {
+    height: 32px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px;
+}
+
+.site-layout-sub-header-background {
+    background: #fff;
+}
+
+.site-layout-background {
+    background: #fff;
+}
+
+.form-box {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    padding: 3em;
+}
+
+input, textarea {
+    margin: 0.5em;
+    padding: 0.5em 1em;
+    border-radius: 10px;
+}
+
+.btn-submit {
+    width: 60%;
+    margin: auto;
+    background-color: #1890ff;
+    border-color: #1890ff;
+    font-weight: bold;
+    color: white
+}
+
+.msg-box{
+    padding-top: 0em;
+}

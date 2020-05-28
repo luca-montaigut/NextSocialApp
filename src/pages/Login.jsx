@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
-import { loginSuccess, loginFail } from '../redux/actions/authActions'
+import { Layout } from 'antd';
+import { Typography } from 'antd';
 
+import { loginSuccess, loginFail } from '../redux/actions/authActions'
 
 const Login = () => {
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
@@ -19,7 +21,8 @@ const Login = () => {
     }
   }, [isAuthenticated, history])
 
-  const login = () => {
+  const login = (e) => {
+    e.preventDefault()
     const data = {
       identifier: email,
       password: password
@@ -45,25 +48,30 @@ const Login = () => {
       })
       .catch((error) => {
         dispatch(loginFail())
-        alert(error)
+        alert("Mauvais email ou mot de passe")
       })
   }
 
+  const { Header, Content } = Layout;
+  const { Title } = Typography;
+
   return (
-    <div>
-      {!isAuthenticated &&
-        <>
-          <input type="text" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-          <input type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-          <button onClick={login}>Submit</button>
-        </>
-      }
-      {isAuthenticated &&
-        <>
-          <h1>connexion réussi !</h1>
-        </>
-      }
-    </div>
+    <>
+      <Header className="site-layout-sub-header-background" style={{ padding: 0, textAlign: "center" }}>
+        <Title>Login</Title>
+      </Header>
+      <Content style={{ margin: '24px 16px 0' }}>
+        <div className="site-layout-background" style={{ padding: 24, minHeight: 360, height: "100%" }}>
+          <div className="form-box">
+            <form onSubmit={login}>
+              <input type="text" placeholder="Your Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+              <input type="password" placeholder="Your unforgettable password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+              <input type="submit" className="btn-submit" />
+            </form>
+          </div>
+        </div>
+      </Content>
+    </>
   )
 }
 

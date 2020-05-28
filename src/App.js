@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import { useSelector, useDispatch } from 'react-redux'
 
 import Cookies from 'js-cookie'
+import { Layout } from 'antd';
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -10,6 +11,7 @@ import Navbar from './components/Navbar';
 import Register from './pages/Register';
 import Profile from './pages/Profile';
 import OtherUser from './pages/OtherUser';
+import "./App.css"
 
 import { loadUser } from './redux/actions/authActions'
 
@@ -63,17 +65,24 @@ const App = () => {
     )} />
   )
 
+  const { Header, Content, Footer, Sider } = Layout;
+
   return (
-    <Router basename={process.env.PUBLIC_URL}>
-      <Navbar />
-      <Switch>
-        <UnAuthRoute path="/login" component={Login} />
-        <UnAuthRoute path="/register" component={Register} />
-        <AuthRoute path="/profile" component={Profile} />
-        <AuthRoute path="/user/:userId" component={OtherUser} />
-        <Route exact path="/" component={Home} />
-      </Switch>
-    </Router>
+    <Layout style={{ minHeight: "100vh" }}>
+      <Router basename={process.env.PUBLIC_URL}>
+        <Navbar />
+        <Layout>
+          <Switch>
+            <UnAuthRoute path="/login" component={Login} />
+            <UnAuthRoute path="/register" component={Register} />
+            <AuthRoute path="/profile" component={Profile} />
+            <AuthRoute path="/user/:userId" component={OtherUser} />
+            <Route exact path="/" component={Home} />
+          </Switch>
+          <Footer style={{ textAlign: 'center' }}>Luca Montaigut - 2020 | Made with ❤</Footer>
+        </Layout>
+      </Router >
+    </Layout>
 
   )
 }

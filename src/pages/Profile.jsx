@@ -1,6 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
 
+import { Layout } from 'antd';
+import { Typography } from 'antd';
+
+const { Title } = Typography;
 
 const Profile = () => {
   const user = useSelector(state => state.auth.user);
@@ -39,12 +43,20 @@ const Profile = () => {
     });
   }
 
+  const { Header, Content } = Layout;
+
   return (
     <>
-      <h1>Welcome on your profile.</h1>
-      <p>id : {id}</p>
-      <p>name : {username}</p>
-      <button onClick={likeForAll}>like for all</button>
+      <Header className="site-layout-sub-header-background" style={{ padding: 0, textAlign: "center" }}>
+        <Title>Welcome on your profile.</Title>
+      </Header>
+      <Content style={{ margin: '24px 16px 0' }}>
+        <div className="site-layout-background" style={{ padding: 24, minHeight: 360, height: "100%" }}>
+          <p>id : {id}</p>
+          <p>name : {username}</p>
+          <button onClick={likeForAll}>like for all</button>
+        </div>
+      </Content>
     </>
   )
 }

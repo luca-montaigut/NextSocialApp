@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux'
 
+import { Layout, Divider } from 'antd';
+import { Typography } from 'antd';
+
 import { loadPosts, newPost, destroyPost, editingPost } from '../redux/actions/postsActions'
 
 import Trash from '../assets/icons/trash.svg'
@@ -38,7 +41,8 @@ const Home = () => {
     }
   }, [posts, dispatch])
 
-  const addPost = () => {
+  const addPost = (e) => {
+    e.preventDefault()
     const addPost = {
       text: msg,
       user: user.id
@@ -148,56 +152,70 @@ const Home = () => {
       })
   }
 
+  const { Title } = Typography;
+  const { Header, Content } = Layout;
+
   return (
     <>
-      <h1>Welcome on My Social Network.</h1>
-      <p>This website is a training to Redux and React. We use auth and routing to create a small social media website.</p>
-      {isAuthenticated &&
-        <>
-          <h2>Hello {user.username}, what do you want to share with us today ?</h2>
-          <input type="text" placeholder="your shitty message" onChange={(e) => setMsg(e.target.value)} value={msg} />
-          <button onClick={addPost}>Add your post</button>
-        </>
-      }
-      <div>
-        <ul>
-          {posts.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)).map((post) => {
-            if (!post.text || !post.user) {
-              return false
-            }
-            return (
-              <li key={post.id}>
-                {isAuthenticated && post.user.id === user.id && edit !== post.id &&
-                  <>
-                    <img src={Trash} alt="delete post" onClick={() => deletePost(post)} style={{ height: "1em" }} />
-                    <button onClick={() => setEdit(post.id)}>Edit</button>
-                  </>
+      <Header className="site-layout-sub-header-background" style={{ padding: 0, textAlign: "center" }}>
+        <Title>Welcome on My Social Network.</Title>
+      </Header>
+      <Content style={{ margin: '24px 16px 0' }}>
+        <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
+          {isAuthenticated &&
+            <>
+              <h2>Hello {user.username}, what do you want to share with us today ?</h2>
+              <div className="form-box">
+                <form onSubmit={addPost} className="msg-box">
+                  <textarea type="text" placeholder="Your shitty message..." onChange={(e) => setMsg(e.target.value)} value={msg} />
+                  <input type="submit" className="btn-submit" />
+                </form>
+              </div>
+              <Divider>News feed</Divider>
+            </>
+          }
+          <div>
+            <ul>
+              {posts.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)).map((post) => {
+                if (!post.text || !post.user) {
+                  return false
                 }
-                {isAuthenticated &&
-                  <Link to={`/user/${post.user.id}`}>
-                    <b>{post.user.username} : </b>
-                  </Link>
-                }
-                {edit !== post.id &&
-                  <>
-                    {post.text}
-                  </>
-                }
-                {isAuthenticated && edit !== post.id &&
-                  <span onClick={() => incrementLike(post)}> <b>|</b> {`❤ ${!post.like ? 0 : post.like}`} <b>|</b></span>
-                }
-                {edit === post.id &&
-                  <>
-                    <input value={msgEdit} onFocus={() => setMsgEdit(post.text)} autoFocus onChange={(e) => setMsgEdit(e.target.value)} />
-                    <button onClick={() => editPost(post)}>edit post</button>
-                    <button onClick={() => setEdit("")}>cancel</button>
-                  </>
-                }
-              </li>
-            )
-          })}
-        </ul>
-      </div>
+                return (
+
+                  <li key={post.id}>
+                    {isAuthenticated && post.user.id === user.id && edit !== post.id &&
+                      <>
+                        <img src={Trash} alt="delete post" onClick={() => deletePost(post)} style={{ height: "1em" }} />
+                        <button onClick={() => setEdit(post.id)}>Edit</button>
+                      </>
+                    }
+                    {isAuthenticated &&
+                      <Link to={`/user/${post.user.id}`}>
+                        <b>{post.user.username} : </b>
+                      </Link>
+                    }
+                    {edit !== post.id &&
+                      <>
+                        {post.text}
+                      </>
+                    }
+                    {isAuthenticated && edit !== post.id &&
+                      <span onClick={() => incrementLike(post)}> <b>|</b> {`❤ ${!post.like ? 0 : post.like}`} <b>|</b></span>
+                    }
+                    {edit === post.id &&
+                      <>
+                        <input value={msgEdit} onFocus={() => setMsgEdit(post.text)} autoFocus onChange={(e) => setMsgEdit(e.target.value)} />
+                        <button onClick={() => editPost(post)}>edit post</button>
+                        <button onClick={() => setEdit("")}>cancel</button>
+                      </>
+                    }
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+        </div>
+      </Content>
     </>
   )
 }
