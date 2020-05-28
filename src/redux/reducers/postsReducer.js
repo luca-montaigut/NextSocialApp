@@ -1,4 +1,4 @@
-import { NEW_POST, LOAD_POSTS, DELETE_POST } from '../actions/actionTypes';
+import { NEW_POST, LOAD_POSTS, DELETE_POST, EDIT_POST } from '../actions/actionTypes';
 
 const initialState = {
   posts: [],
@@ -16,11 +16,15 @@ const postsReducer = (state = initialState, action) => {
         ...state,
         posts: state.posts.concat(action.newPost)
       }
-    case DELETE_POST:
-      const updatedPosts = state.posts.filter((post) => post.id !== action.toDeletePost.id)
+    case EDIT_POST:
       return {
         ...state,
-        posts: updatedPosts
+        posts: state.posts.map((post) => post.id === action.editedPost.id ? action.editedPost : post)
+      }
+    case DELETE_POST:
+      return {
+        ...state,
+        posts: state.posts.filter((post) => post.id !== action.toDeletePost.id)
       }
     default:
       return state

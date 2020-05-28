@@ -14,7 +14,14 @@ export const newPost = (post) => {
     }
 }
 
-export const deletePost = (post) => {
+export const editingPost = (post) => {
+    return {
+        type: actionTypes.EDIT_POST,
+        editedPost: post
+    }
+}
+
+export const destroyPost = (post) => {
     return {
         type: actionTypes.DELETE_POST,
         toDeletePost: post

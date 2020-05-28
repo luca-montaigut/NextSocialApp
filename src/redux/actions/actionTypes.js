@@ -7,4 +7,5 @@ export const REGISTER_FAIL = "REGISTER_FAIL";
 
 export const LOAD_POSTS = "LOAD_POST";
 export const NEW_POST = "NEW_POST";
+export const EDIT_POST = "EDIT_POST";
 export const DELETE_POST = "DELETE_POST";
