@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "dfefc43ddc0e078f7a6a37937f91572f",
+    "revision": "3d0cf494b823f019debc34b14a05794d",
     "url": "/NextSocialApp/index.html"
   },
   {
-    "revision": "2ffdfc3d14419fb42ee7",
+    "revision": "df426e8df7289ad1f992",
     "url": "/NextSocialApp/static/css/2.63b65d4e.chunk.css"
   },
   {
-    "revision": "2c36b9ed442bc2dc078f",
+    "revision": "b156bfc04bb5c396d6da",
     "url": "/NextSocialApp/static/css/main.af55fa1e.chunk.css"
   },
   {
-    "revision": "2ffdfc3d14419fb42ee7",
-    "url": "/NextSocialApp/static/js/2.a0c873e3.chunk.js"
+    "revision": "df426e8df7289ad1f992",
+    "url": "/NextSocialApp/static/js/2.c8ef68b5.chunk.js"
   },
   {
     "revision": "14060d5403b5cb599a71704f7b391b06",
-    "url": "/NextSocialApp/static/js/2.a0c873e3.chunk.js.LICENSE.txt"
+    "url": "/NextSocialApp/static/js/2.c8ef68b5.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "2c36b9ed442bc2dc078f",
-    "url": "/NextSocialApp/static/js/main.8af27392.chunk.js"
+    "revision": "b156bfc04bb5c396d6da",
+    "url": "/NextSocialApp/static/js/main.43531d6e.chunk.js"
   },
   {
     "revision": "43ad048534f590512946",
