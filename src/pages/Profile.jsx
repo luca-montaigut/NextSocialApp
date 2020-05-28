@@ -77,27 +77,29 @@ const Profile = () => {
   }
 
   const deleteAll = () => {
-    posts.forEach(post => {
-      fetch(`https://api-minireseausocial.mathis-dyk.fr/posts/${post.id}`, {
-        method: 'delete',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-      })
-        .then((response) => {
-          if (!response.ok) {
-            throw Error(response.statusText);
-          }
-          return response
+    if (window.confirm("Êtes-vous sûr de vouloir tout supprimer ?")) {
+      posts.forEach(post => {
+        fetch(`https://api-minireseausocial.mathis-dyk.fr/posts/${post.id}`, {
+          method: 'delete',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
         })
-        .then((response) => response.json())
-        .then((response) => {
-          console.log(response)
-          dispatch(destroyPost(response))
-        })
-        .catch(console.log)
-    });
+          .then((response) => {
+            if (!response.ok) {
+              throw Error(response.statusText);
+            }
+            return response
+          })
+          .then((response) => response.json())
+          .then((response) => {
+            console.log(response)
+            dispatch(destroyPost(response))
+          })
+          .catch(console.log)
+      });
+    }
   }
 
   const iAmTheBoss = () => {
