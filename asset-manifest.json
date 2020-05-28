@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.js": "/NextSocialApp/static/js/main.afdf33a0.chunk.js",
+    "main.js.map": "/NextSocialApp/static/js/main.afdf33a0.chunk.js.map",
+    "runtime-main.js": "/NextSocialApp/static/js/runtime-main.5f82ed00.js",
+    "runtime-main.js.map": "/NextSocialApp/static/js/runtime-main.5f82ed00.js.map",
+    "static/js/2.85a96503.chunk.js": "/NextSocialApp/static/js/2.85a96503.chunk.js",
+    "static/js/2.85a96503.chunk.js.map": "/NextSocialApp/static/js/2.85a96503.chunk.js.map",
+    "index.html": "/NextSocialApp/index.html",
+    "precache-manifest.e7bbad9519da7c65c76f32e9f444079c.js": "/NextSocialApp/precache-manifest.e7bbad9519da7c65c76f32e9f444079c.js",
+    "service-worker.js": "/NextSocialApp/service-worker.js",
+    "static/js/2.85a96503.chunk.js.LICENSE.txt": "/NextSocialApp/static/js/2.85a96503.chunk.js.LICENSE.txt",
+    "static/media/trash.svg": "/NextSocialApp/static/media/trash.0eb3b1bc.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5f82ed00.js",
+    "static/js/2.85a96503.chunk.js",
+    "static/js/main.afdf33a0.chunk.js"
+  ]
+}
