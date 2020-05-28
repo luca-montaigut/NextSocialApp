@@ -65,7 +65,7 @@ const App = () => {
     )} />
   )
 
-  const { Header, Content, Footer, Sider } = Layout;
+  const { Footer } = Layout;
 
   return (
     <Layout style={{ minHeight: "100vh" }}>
