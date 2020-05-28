@@ -43,6 +43,16 @@ const App = () => {
     }
   }, [dispatch])
 
+  const UnAuthRoute = ({ component: Component, ...rest }) => (
+    <Route {...rest} render={props => (
+      isAuthenticated ? (
+        <Redirect to={{ pathname: '/' }} />
+      ) : (
+          <Component {...props} />
+        )
+    )} />
+  )
+
   const AuthRoute = ({ component: Component, ...rest }) => (
     <Route {...rest} render={props => (
       isAuthenticated ? (
@@ -57,8 +67,8 @@ const App = () => {
     <Router basename={process.env.PUBLIC_URL}>
       <Navbar />
       <Switch>
-        <Route path="/login" component={Login} />
-        <Route path="/register" component={Register} />
+        <UnAuthRoute path="/login" component={Login} />
+        <UnAuthRoute path="/register" component={Register} />
         <AuthRoute path="/profile" component={Profile} />
         <AuthRoute path="/user/:userId" component={OtherUser} />
         <Route exact path="/" component={Home} />
