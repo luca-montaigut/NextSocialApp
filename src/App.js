@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import Navbar from './components/Navbar';
 import Register from './pages/Register';
 import Profile from './pages/Profile';
+import OtherUser from './pages/OtherUser';
 
 import { loadUser } from './redux/actions/authActions'
 
@@ -34,14 +35,13 @@ const App = () => {
         })
         .then((response) => response.json())
         .then((response) => {
-          console.log(response)
           dispatch(loadUser(response))
         })
         .catch((error) => {
           console.log(error)
         })
     }
-  }, [])
+  }, [dispatch])
 
   const AuthRoute = ({ component: Component, ...rest }) => (
     <Route {...rest} render={props => (
@@ -59,8 +59,9 @@ const App = () => {
       <Switch>
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
-        <Route exact path="/" component={Home} />
         <AuthRoute path="/profile" component={Profile} />
+        <AuthRoute path="/user/:userId" component={OtherUser} />
+        <Route exact path="/" component={Home} />
       </Switch>
     </Router>
 

@@ -17,7 +17,7 @@ const Login = () => {
     if (isAuthenticated) {
       history.push("/");
     }
-  }, [])
+  }, [isAuthenticated, history])
 
   const login = () => {
     const data = {
@@ -40,7 +40,6 @@ const Login = () => {
       })
       .then((response) => response.json())
       .then((response) => {
-        console.log(response)
         dispatch(loginSuccess(response))
         history.push("/");
       })

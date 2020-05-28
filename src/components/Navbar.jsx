@@ -19,16 +19,16 @@ const Navbar = () => {
 
   return (
     <>
-      <Link to="/">Home</Link>
+      <Link to="/"> Home </Link>
       {!isAuthenticated &&
         <>
-          <Link to="/login">Login</Link>
-          <Link to="/register">Register</Link>
+          <Link to="/login"> Login </Link>
+          <Link to="/register"> Register </Link>
         </>
       }
       {isAuthenticated &&
         <>
-          <Link to="/profile">Profile</Link>
+          <Link to="/profile"> Profile </Link>
           <button onClick={logout}>Se déconnecter</button>
         </>}
     </>
