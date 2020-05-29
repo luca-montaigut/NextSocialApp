@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3d0cf494b823f019debc34b14a05794d",
+    "revision": "a45421c9c51527379c5caa11451aebce",
     "url": "/NextSocialApp/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/NextSocialApp/static/css/2.63b65d4e.chunk.css"
   },
   {
-    "revision": "b156bfc04bb5c396d6da",
+    "revision": "ddc0ccc861f28e37e2c3",
     "url": "/NextSocialApp/static/css/main.af55fa1e.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/NextSocialApp/static/js/2.c8ef68b5.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "b156bfc04bb5c396d6da",
-    "url": "/NextSocialApp/static/js/main.43531d6e.chunk.js"
+    "revision": "ddc0ccc861f28e37e2c3",
+    "url": "/NextSocialApp/static/js/main.1adf530f.chunk.js"
   },
   {
     "revision": "43ad048534f590512946",

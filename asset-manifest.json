@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/NextSocialApp/static/css/main.af55fa1e.chunk.css",
-    "main.js": "/NextSocialApp/static/js/main.43531d6e.chunk.js",
-    "main.js.map": "/NextSocialApp/static/js/main.43531d6e.chunk.js.map",
+    "main.js": "/NextSocialApp/static/js/main.1adf530f.chunk.js",
+    "main.js.map": "/NextSocialApp/static/js/main.1adf530f.chunk.js.map",
     "runtime-main.js": "/NextSocialApp/static/js/runtime-main.5f82ed00.js",
     "runtime-main.js.map": "/NextSocialApp/static/js/runtime-main.5f82ed00.js.map",
     "static/css/2.63b65d4e.chunk.css": "/NextSocialApp/static/css/2.63b65d4e.chunk.css",
     "static/js/2.c8ef68b5.chunk.js": "/NextSocialApp/static/js/2.c8ef68b5.chunk.js",
     "static/js/2.c8ef68b5.chunk.js.map": "/NextSocialApp/static/js/2.c8ef68b5.chunk.js.map",
     "index.html": "/NextSocialApp/index.html",
-    "precache-manifest.deaa7cacca5372a3a8f6682087a51df8.js": "/NextSocialApp/precache-manifest.deaa7cacca5372a3a8f6682087a51df8.js",
+    "precache-manifest.ff88e4000d7502f2db45eb387063610a.js": "/NextSocialApp/precache-manifest.ff88e4000d7502f2db45eb387063610a.js",
     "service-worker.js": "/NextSocialApp/service-worker.js",
     "static/css/2.63b65d4e.chunk.css.map": "/NextSocialApp/static/css/2.63b65d4e.chunk.css.map",
     "static/css/main.af55fa1e.chunk.css.map": "/NextSocialApp/static/css/main.af55fa1e.chunk.css.map",
@@ -21,6 +21,6 @@
     "static/css/2.63b65d4e.chunk.css",
     "static/js/2.c8ef68b5.chunk.js",
     "static/css/main.af55fa1e.chunk.css",
-    "static/js/main.43531d6e.chunk.js"
+    "static/js/main.1adf530f.chunk.js"
   ]
 }
